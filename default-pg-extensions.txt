@@ -1,0 +1,7 @@
+pg_partman
+pgvector
+pg_stat_statements
+hydra_columnar
+extra_window_functions
+pg_lakehouse
+pg_tier
