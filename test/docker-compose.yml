@@ -1,0 +1,8 @@
+services:
+  postgres:
+    image: ghcr.io/innerfuse/tembo:main
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+    volumes:
+      - ./extensions.txt:/tmp/extensions.txt
