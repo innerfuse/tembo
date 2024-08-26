@@ -1,4 +1,4 @@
-FROM rust:1.70.0-slim-bookworm as builder
+FROM rust:1.74.0-slim-bookworm as builder
 ARG TRUNK_VER=0.8.3
 ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL sparse
 RUN apt update && apt install -y pkg-config libssl-dev
