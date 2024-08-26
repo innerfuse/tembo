@@ -1,5 +1,6 @@
 FROM rust:1.74.0-slim-bookworm as builder
-ARG TRUNK_VER=0.8.3
+ARG TRUNK_VER=0.12.26
+
 ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL sparse
 RUN apt update && apt install -y pkg-config libssl-dev
 RUN cargo install --version $TRUNK_VER pg-trunk
