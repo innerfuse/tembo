@@ -16,6 +16,11 @@ COPY --from=builder /usr/local/cargo/bin/trunk /usr/bin/trunk
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 
+RUN echo "TARGETARCH=${TARGETARCH:-unknown}"
+RUN echo "TARGETOS=${TARGETOS:-unknown}"
+RUN echo "TARGETVARIANT=${TARGETVARIANT:-unknown}"
+RUN echo "BUILDKIT_VARIANT=${BUILDKIT_VARIANT:-unknown}"
+
 # Set the postgres user's permissions
 RUN set -eux; \
 	groupadd -r postgres --gid=999; \
@@ -95,8 +100,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # RUN ln -s /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so /usr/lib/x86_64-linux-gnu/libjvm.so
+RUN echo "TARGETARCH=${TARGETARCH:-unknown}"
+RUN echo "TARGETOS=${TARGETOS:-unknown}"
+RUN echo "TARGETVARIANT=${TARGETVARIANT:-unknown}"
+RUN echo "BUILDKIT_VARIANT=${BUILDKIT_VARIANT:-unknown}"
 RUN ls -la /usr/lib/
-RUN ls -la /usr/lib/jvm/java-11-openjdk-amd64/lib/server/
+RUN ls -la /usr/lib/jvm
 RUN ls -la /usr/lib/jvm/java-11-openjdk-amd64/lib/server/
 
 # Build Postgres from source
