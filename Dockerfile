@@ -16,6 +16,10 @@ COPY --from=builder /usr/local/cargo/bin/trunk /usr/bin/trunk
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 
+ARG TARGETARCH
+ARG TARGETOS
+ARG TARGETVARIANT
+
 RUN echo "TARGETARCH=${TARGETARCH:-unknown}"
 RUN echo "TARGETOS=${TARGETOS:-unknown}"
 RUN echo "TARGETVARIANT=${TARGETVARIANT:-unknown}"
